@@ -1,4 +1,4 @@
-# Forge Code Reference Suite
+# Code Reference Suite
 
 Hướng dẫn hoàn chỉnh về viết code, thiết kế kiến trúc, và duy trì chất lượng với tự động hóa CI/CD.
 
