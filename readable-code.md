@@ -1,9 +1,9 @@
 # Readable Code Reference
 
-> **Mục tiêu**: Tập trung vào cách viết code sao cho **dễ đọc, dễ hiểu, rõ ràng**
-> - **Khi nào dùng**: Review code mới, refactor để cải thiện clarity, audit naming/formatting
-> - **Không bao gồm**: Design architecture, OOP patterns, performance tuning
-> - **Phù hợp cho**: Code review, naming conventions, control flow clarity, test structure
+> **Objective**: Focus on writing code that is **easy to read, understand, and clear**
+> - **When to use**: Review new code, refactor for clarity, audit naming/formatting
+> - **Not included**: Design architecture, OOP patterns, performance tuning
+> - **Suitable for**: Code review, naming conventions, control flow clarity, test structure
 
 ---
 
@@ -179,11 +179,11 @@ public function validateAndExtractUserEmail(array $data): string {
 
 ---
 
-## SECTION 4: CONTROL FLOW — CLEAR & MINIMAL NESTING
+## SECTION 3: CONTROL FLOW — CLEAR & MINIMAL NESTING
 
 Consolidated from: "Readable Code" + "Clean Code"
 
-### Pattern 4.1: Guard Clauses — Early Return
+### Pattern 3.1: Guard Clauses — Early Return
 
 **Problem**: Deep nesting = cognitive overload  
 **Solution**: Invert conditions, return early  
@@ -229,7 +229,7 @@ public function processPayment(Order $order): ?Payment {
 
 ---
 
-### Pattern 4.2: Standard Loop Patterns
+### Pattern 3.2: Standard Loop Patterns
 
 **Problem**: Manual loop patterns with counters, unclear intent  
 **Solution**: Use `foreach`, collection methods, standard patterns  
@@ -275,11 +275,11 @@ foreach ($array as $element) {
 
 ---
 
-## SECTION 5: EXPRESSIONS — BREAK DOWN COMPLEX LOGIC
+## SECTION 4: EXPRESSIONS — BREAK DOWN COMPLEX LOGIC
 
 Consolidated from: "Readable Code"
 
-### Pattern 5.1: Extract Boolean Logic
+### Pattern 4.1: Extract Boolean Logic
 
 **Problem**: Giant boolean expression hard to verify  
 **Solution**: Each condition = named variable  
@@ -316,7 +316,7 @@ if ($canGrantAccess) {
 
 ---
 
-### Pattern 5.2: Break Down Financial Calculations
+### Pattern 4.2: Break Down Financial Calculations
 
 **Problem**: Dense calculations hard to verify (critical for money!)  
 **Solution**: Each step explicit  
@@ -344,11 +344,11 @@ $finalPrice = $subtotalAfterLoyalty + $taxAmount;
 
 ---
 
-## SECTION 6: DATA STRUCTURES & VARIABLES — SCOPE & COHESION
+## SECTION 5: DATA STRUCTURES & VARIABLES — SCOPE & COHESION
 
 Consolidated from: "Readable Code" + "Code Complete"
 
-### Pattern 6.1: Keep Scope Small
+### Pattern 5.1: Keep Scope Small
 
 **Problem**: Variables declared early, used late  
 **Solution**: Declare at point of use  
@@ -382,11 +382,11 @@ public function getUserStats($userId): int {
 
 ---
 
-## SECTION 12: FORMATTING & AESTHETICS
+## SECTION 6: FORMATTING & AESTHETICS
 
 Consolidated from: "Readable Code" + "Clean Code"
 
-### Pattern 12.1: Consistent Indentation & Spacing
+### Pattern 6.1: Consistent Indentation & Spacing
 
 **Problem**: Inconsistent formatting, hard to read  
 **Solution**: Consistent style throughout codebase  
@@ -421,7 +421,7 @@ class User {
 
 ---
 
-### Pattern 12.2: Line Length & Method Formatting
+### Pattern 6.2: Line Length & Method Formatting
 
 **Problem**: Long lines hard to scan  
 **Solution**: Keep lines ≤100 characters  
@@ -458,7 +458,7 @@ $result = $this->process($parameterOne,
 
 ---
 
-### Pattern 12.3: Meaningful Whitespace
+### Pattern 6.3: Meaningful Whitespace
 
 **Problem**: Code blocks unclear  
 **Solution**: Use spacing to show structure  
@@ -602,6 +602,6 @@ public function testEmailValidationRejectsMissingDomain() { }
 
 ## SUMMARY
 
-**Focus**: Code dễ đọc, dễ hiểu, rõ ràng  
+**Focus**: Write code that is easy to read, understand, and clear  
 **7 sections, 15 patterns**: Naming, Comments, Control Flow, Expressions, Data Scope, Formatting, Testing  
 **For AI**: Code review, clarity audit, naming consistency check
