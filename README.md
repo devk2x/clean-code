@@ -456,7 +456,7 @@ Phân Tích Theo File:
 ### Tổ Chức Files
 
 ```
-/forge/references/
+/references/
 ├─ README.md                  ← Bạn đang ở đây
 ├─ readable-code.md          ← Cách viết
 ├─ clean-code.md             ← Cách thiết kế
