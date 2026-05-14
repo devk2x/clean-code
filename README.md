@@ -473,5 +473,5 @@ Phân Tích Theo File:
 
 ---
 
-**Tất cả files đã sẵn sàng production và tối ưu hóa cho Forge agents.** ✅
+**Tất cả files đã sẵn sàng production và tối ưu hóa cho agents.** ✅
 
