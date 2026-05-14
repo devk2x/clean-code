@@ -1,17 +1,17 @@
 # Code Quality Reference
 
-> **Mục tiêu**: Tập trung vào cách duy trì chất lượng code: **loại bỏ duplication, optimize wisely, design process**
-> - **Khi nào dùng**: Code review cho duplication, performance profiling, planning complex functions
-> - **Không bao gồm**: Code formatting, readability, design architecture
-> - **Phù hợp cho**: DRY audit, performance optimization, design planning, pseudocode review
+> **Objective**: Focus on maintaining code quality: **eliminate duplication, optimize wisely, design smart**
+> - **When to use**: Code review for duplication, performance profiling, planning complex functions
+> - **Not included**: Code formatting, readability, design architecture
+> - **Suitable for**: DRY audit, performance optimization, design planning, pseudocode review
 
 ---
 
-## SECTION 13: WRITING LESS CODE & DRY PRINCIPLE
+## SECTION 1: WRITING LESS CODE & DRY PRINCIPLE
 
 From: "The Art of Readable Code" + "Code Complete"
 
-### Pattern 13.1: DRY — Don't Repeat Yourself
+### Pattern 1.1: DRY — Don't Repeat Yourself
 
 **Problem**: Same logic appears multiple times  
 **Solution**: Extract to reusable function  
@@ -81,7 +81,7 @@ class UserService {
 
 ---
 
-### Pattern 13.2: Remove Dead Code
+### Pattern 1.2: Remove Dead Code
 
 **Problem**: Unused functions, commented code clutter  
 **Solution**: Delete (version control has history)  
@@ -119,7 +119,7 @@ public function chargePayment(Order $order): PaymentResult {
 
 ---
 
-### Pattern 13.3: Simplify Complex Conditions
+### Pattern 1.3: Simplify Complex Conditions
 
 **Problem**: Complex expressions instead of simpler approach  
 **Solution**: Use library functions, simplify logic  
@@ -153,11 +153,11 @@ $names = array_map(fn($u) => $u['name'], $adultUsers);
 
 ---
 
-## SECTION 14: CODE TUNING & PERFORMANCE
+## SECTION 2: CODE TUNING & PERFORMANCE
 
 From: "Code Complete" + practical considerations
 
-### Pattern 14.1: When to Optimize — Measure First
+### Pattern 2.1: When to Optimize — Measure First
 
 **Problem**: Optimize without knowing where bottleneck is  
 **Solution**: Profile before optimizing  
@@ -195,7 +195,7 @@ public function getUserCount(): int {
 
 ---
 
-### Pattern 14.2: Common Performance Patterns
+### Pattern 2.2: Common Performance Patterns
 
 **Problem**: N+1 queries, inefficient algorithms  
 **Solution**: Use proven patterns  
@@ -235,7 +235,7 @@ return User::where('email', $email)->first();
 
 ---
 
-### Pattern 14.3: Performance Trade-offs
+### Pattern 2.3: Performance Trade-offs
 
 **Problem**: Optimizing for speed while sacrificing readability  
 **Solution**: Comment trade-off decisions  
@@ -271,11 +271,11 @@ public function getOrderWithCustomerEmail($orderId) {
 
 ---
 
-## SECTION 15: PSEUDOCODE & PROGRAMMING PROCESS
+## SECTION 3: PSEUDOCODE & PROGRAMMING PROCESS
 
 From: "Code Complete"
 
-### Pattern 15.1: Write Pseudocode Before Code
+### Pattern 3.1: Write Pseudocode Before Code
 
 **Problem**: Dive directly into coding, miss design  
 **Solution**: Plan with pseudocode first  
@@ -326,7 +326,7 @@ public function processOrder(Order $order): OrderConfirmation {
 
 ---
 
-### Pattern 15.2: Top-Down Design vs Bottom-Up
+### Pattern 3.2: Top-Down Design vs Bottom-Up
 
 **Problem**: Unclear structure, building wrong thing  
 **Solution**: Design top-down, implement bottom-up  
@@ -390,6 +390,6 @@ public function applyDiscounts(float $total, Order $order): float { }
 
 ## SUMMARY
 
-**Focus**: Chất lượng code: DRY, Performance, Design Process  
-**4 sections, 9 patterns**: DRY, Dead Code, Simplify, Performance, Pseudocode  
+**Focus**: Maintain code quality: DRY, Performance, Design Process  
+**3 sections, 8 patterns**: DRY, Dead Code, Simplify, Performance, Pseudocode  
 **For AI**: DRY audit, performance review, design planning
