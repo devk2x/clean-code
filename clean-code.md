@@ -1,17 +1,17 @@
 # Clean Code Reference
 
-> **Mục tiêu**: Tập trung vào cách thiết kế code **sạch, maintainable, good architecture**
-> - **Khi nào dùng**: Code review cho design, refactor để cải thiện architecture, audit OOP patterns
-> - **Không bao gồm**: Code formatting, performance tuning, development process
-> - **Phù hợp cho**: Design review, class/function structure, error handling strategy, refactoring
+> **Objective**: Focus on designing code that is **clean, maintainable, and well-architected**
+> - **When to use**: Code review for design, refactor to improve architecture, audit OOP patterns
+> - **Not included**: Code formatting, performance tuning, development process
+> - **Suitable for**: Design review, class/function structure, error handling strategy, refactoring
 
 ---
 
-## SECTION 3: FUNCTIONS — SMALL, FOCUSED, TESTABLE
+## SECTION 1: FUNCTIONS — SMALL, FOCUSED, TESTABLE
 
 Consolidated from: "Readable Code" + "Clean Code"
 
-### Pattern 3.1: Single Responsibility — One Reason to Change
+### Pattern 1.1: Single Responsibility — One Reason to Change
 
 **Problem**: Functions do multiple things, hard to test  
 **Solution**: One concern per function, ~10-20 lines  
@@ -65,7 +65,7 @@ private function notifyUserOfRegistration(User $user): void {
 
 ---
 
-### Pattern 3.2: Parameters — Max 3, Group Related
+### Pattern 1.2: Parameters — Max 3, Group Related
 
 **Problem**: Too many parameters = confusing  
 **Solution**: Use value objects, DTOs  
@@ -110,11 +110,11 @@ class InvoiceData {
 
 ---
 
-## SECTION 8: ERROR HANDLING — DEFENSIVE PROGRAMMING
+## SECTION 2: ERROR HANDLING — DEFENSIVE PROGRAMMING
 
 Consolidated from: "Clean Code" + "Code Complete"
 
-### Pattern 8.1: Specific Exceptions + Context
+### Pattern 2.1: Specific Exceptions + Context
 
 **Problem**: Generic exceptions lose information  
 **Solution**: Domain-specific exceptions with detail  
@@ -145,7 +145,7 @@ throw new PaymentFailedException(
 
 ---
 
-### Pattern 8.2: Defensive Programming — Validate at Boundaries
+### Pattern 2.2: Defensive Programming — Validate at Boundaries
 
 **Problem**: Assuming external input is valid leads to bugs  
 **Solution**: Validate at system boundaries, not internally  
@@ -195,11 +195,11 @@ public function withdrawFunds(float $amount): void {
 
 ---
 
-## SECTION 9: CLASSES — DESIGN & RESPONSIBILITY & COMMON MISTAKES
+## SECTION 3: CLASSES — DESIGN & RESPONSIBILITY & COMMON MISTAKES
 
 Consolidated from: "Clean Code"
 
-### Pattern 9.1: Single Responsibility — One Reason to Change
+### Pattern 3.1: Single Responsibility — One Reason to Change
 
 **Problem**: Class does multiple things  
 **Solution**: Each class = one responsibility  
@@ -249,7 +249,7 @@ class PasswordHasher {
 
 ---
 
-### Pattern 9.2: Encapsulation — Hide Implementation
+### Pattern 3.2: Encapsulation — Hide Implementation
 
 **Problem**: Exposing internal structure  
 **Solution**: Private fields, public methods  
@@ -289,7 +289,7 @@ class BankAccount {
 
 ---
 
-### Pattern 9.3: Common OOP Mistakes — Inheritance, Type Hints, Composition
+### Pattern 3.3: Common OOP Mistakes — Inheritance, Type Hints, Composition
 
 **Problem**: Misuse of inheritance, missing type hints, tight coupling  
 **Solution**: Use composition, add type hints, decouple  
@@ -413,13 +413,13 @@ class AuthTokenGenerator {
 
 ---
 
-## SECTION 10: SOLID PRINCIPLES — DESIGN FOUNDATIONS
+## SECTION 4: SOLID PRINCIPLES — DESIGN FOUNDATIONS
 
 Consolidated from: "Clean Code" + "Code Complete"
 
 > **SOLID** = 5 core design principles ensuring code flexibility, maintainability, extensibility
 
-### Pattern 10.1: O — Open/Closed Principle
+### Pattern 4.1: O — Open/Closed Principle
 
 **Problem**: Adding new features requires modifying existing code  
 **Solution**: Open for extension, closed for modification (use polymorphism)  
@@ -479,7 +479,7 @@ $totalSalary = array_sum(array_map(fn($e) => $e->calculateSalary(), $employees))
 
 ---
 
-### Pattern 10.2: L — Liskov Substitution Principle
+### Pattern 4.2: L — Liskov Substitution Principle
 
 **Problem**: Subtype breaks behavior of parent type  
 **Solution**: Subtypes must be substitutable for parent type  
@@ -535,7 +535,7 @@ function make_animal_fly(Flyer $flyer) {
 
 ---
 
-### Pattern 10.3: I — Interface Segregation Principle
+### Pattern 4.3: I — Interface Segregation Principle
 
 **Problem**: Client forced to depend on methods it doesn't use  
 **Solution**: Split fat interface into smaller, focused interfaces  
@@ -590,7 +590,7 @@ class Human implements Workable, Eatable, Sleepable {
 
 ---
 
-### Pattern 10.4: D — Dependency Inversion Principle
+### Pattern 4.4: D — Dependency Inversion Principle
 
 **Problem**: High-level code depends on low-level implementations  
 **Solution**: Both depend on abstractions (interfaces)  
@@ -645,7 +645,7 @@ $processor = new PaymentProcessor(new PayPalGateway());
 
 ---
 
-### Pattern 10.5: S — Single Responsibility Principle (SOLID Recap)
+### Pattern 4.5: S — Single Responsibility Principle (SOLID Recap)
 
 **Problem**: Class/function with multiple reasons to change  
 **Solution**: One responsibility = one reason to change  
@@ -693,11 +693,11 @@ class UserNotifier {
 
 ---
 
-## SECTION 6: DATA STRUCTURES & VARIABLES — TABLE-DRIVEN DESIGN
+## SECTION 5: DATA STRUCTURES & VARIABLES — TABLE-DRIVEN DESIGN
 
 Consolidated from: "Readable Code" + "Code Complete"
 
-### Pattern 6.2: Table-Driven Methods (Code Complete)
+### Pattern 5.2: Table-Driven Methods (Code Complete)
 
 **Problem**: Logic scattered in if/switch statements  
 **Solution**: Use data structures instead  
@@ -746,7 +746,7 @@ public function getTierConfig(string $tier): array {
 
 ---
 
-## SECTION 11: CODE SMELLS — RED FLAGS TO REFACTOR
+## SECTION 6: CODE SMELLS — RED FLAGS TO REFACTOR
 
 Consolidated from: "Clean Code"
 
@@ -762,7 +762,7 @@ Consolidated from: "Clean Code"
 **Shotgun Surgery**: Change requires updates in many places → Consolidate related code  
 **Switch Statements**: On type/status → Use polymorphism or strategy pattern  
 
-### Pattern 11.1: Duplicate Code
+### Pattern 6.1: Duplicate Code
 
 **Problem**: Same validation/logic scattered across multiple methods  
 **Solution**: Extract to reusable validator class  
@@ -808,7 +808,7 @@ class UserService {
 
 ---
 
-### Pattern 11.2: Switch Statements on Types
+### Pattern 6.2: Switch Statements on Types
 
 **Problem**: Switch statements on type require code modification for new types (OCP violation)  
 **Solution**: Use polymorphism/strategy pattern  
@@ -851,7 +851,7 @@ public function processPayment(PaymentProcessor $processor, float $amount): Paym
 
 ---
 
-### Pattern 11.3: Magic Numbers
+### Pattern 6.3: Magic Numbers
 
 **Problem**: Hardcoded values without semantic meaning hide intent  
 **Solution**: Extract to named constants  
@@ -882,11 +882,11 @@ sleep(self::API_TIMEOUT_MS);
 
 ---
 
-## SECTION 12: BOUNDARIES — EXTERNAL CODE & INTEGRATION
+## SECTION 7: BOUNDARIES — EXTERNAL CODE & INTEGRATION
 
 Consolidated from: "Clean Code"
 
-### Pattern 12.1: Wrap Third-Party Libraries
+### Pattern 7.1: Wrap Third-Party Libraries
 
 **Problem**: Direct dependency on external library  
 **Solution**: Adapter pattern isolation  
@@ -939,7 +939,7 @@ class OrderProcessor {
 
 ---
 
-### Pattern 12.2: Learning Tests
+### Pattern 7.2: Learning Tests
 
 **Problem**: Don't understand external library  
 **Solution**: Write tests documenting behavior  
@@ -1004,7 +1004,7 @@ public function testCarbonDateArithmetic() {
 
 ## SUMMARY
 
-**Focus**: Code sạch, maintainable, good architecture  
+**Focus**: Write clean, maintainable, and well-architected code  
 **7 sections, 18 patterns**: Functions (3), Error Handling (2), Classes (3), **SOLID (5)**, Table-Driven (1), Code Smells (3), Boundaries (2)
 
 **Sections**:
